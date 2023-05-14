@@ -13,14 +13,13 @@ class BSTNode(object):
 
 # reference https://www.youtube.com/watch?v=0K0uCMYq5ng
 class Solution:
-
     def recursion(self, nums, lower, upper):
         # base-case / stopping condition
         if lower > upper:
             return None
 
         # middle index of the array
-        midpoint = (lower + upper + 1) // 2
+        midpoint = (lower + upper) // 2
         # create new BSTNode
         root = BSTNode(nums[midpoint])
         # recursive call for left subtree
