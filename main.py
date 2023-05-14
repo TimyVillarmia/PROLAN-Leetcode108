@@ -28,40 +28,40 @@ class Solution:
         root.right = self.recursion(nums, midpoint + 1, upper)
         return root
 
-    def sortedArrayToBST(self, nums: list[int]) -> BSTNode:
+    def sorted_array_to_bst(self, nums: list[int]) -> BSTNode:
         return self.recursion(nums, 0, len(nums) - 1)
 
 
-def inOrder(node):
+def inorder(node):
     if not node:
         return
     # visit the left child/subtree recursively
-    inOrder(node.left)
+    inorder(node.left)
     # print the current node value
     print(node.val, end=" ")
     # then visit the right child/subtree recursively
-    inOrder(node.right)
+    inorder(node.right)
 
 
-def preOrder(node):
+def preorder(node):
     if not node:
         return
     # print the current node value
     print(node.val, end=" ")
     # visit the left child/subtree recursively
-    postOrder(node.left)
+    preorder(node.left)
     # then visit the right child/subtree recursively
-    inOrder(node.right)
+    preorder(node.right)
 
 
-def postOrder(node):
+def postorder(node):
     if not node:
         return
 
     # visit the left child/subtree recursively
-    postOrder(node.left)
+    postorder(node.left)
     # then visit the right child/subtree recursively
-    inOrder(node.right)
+    postorder(node.right)
     # print the current node value
     print(node.val, end=" ")
 
@@ -70,22 +70,22 @@ def main():
     # Testcases
     case1 = [-10, -3, 0, 5, 9]  # BST [0,-10,5,null,-3,null,9]
     case2 = [1, 3]  # BST [1,null,3]
-    case3 = [3, 6, 8, 23, 48, 76, 89]  # BST [23,6,76,3,8,48,89]
-    case4 = [-41, -32, -29, -20, -11, 0, 50, 65, 72, 91,99]  # BST [0,-29,72,-41,-20,50,91,null,-32,null,-11,null,65,null,99]
+    case3 = [-41, -32, -29, -20, -11, 0, 50, 65, 72, 91, 99]  # BST [0,-29,72,-41,-20,50,91,null,-32,null,-11,null,65,null,99]
+    case4 = [3, 6, 8, 23, 48, 76, 89]  # BST [23,6,76,3,8,48,89]
     case5 = [-20, -10, -3, 0, 5, 9, 27]  # BST [0,-10,9,-20,-3,5,27]
 
     result = Solution()
     print("Post-Order Traversal")
     print("Case #1: ")
-    print(postOrder(result.sortedArrayToBST(case1)))
+    print(postorder(result.sorted_array_to_bst(case1)))
     print("Case #2: ")
-    print(postOrder(result.sortedArrayToBST(case2)))
+    print(postorder(result.sorted_array_to_bst(case2)))
     print("Case #3: ")
-    print(postOrder(result.sortedArrayToBST(case3)))
+    print(postorder(result.sorted_array_to_bst(case3)))
     print("Case #4: ")
-    print(postOrder(result.sortedArrayToBST(case4)))
+    print(postorder(result.sorted_array_to_bst(case4)))
     print("Case #5: ")
-    print(postOrder(result.sortedArrayToBST(case5)))
+    print(postorder(result.sorted_array_to_bst(case5)))
 
 
 # Press the green button in the gutter to run the script.

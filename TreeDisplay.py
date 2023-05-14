@@ -54,12 +54,12 @@ def drawtree(root):
 if __name__ == '__main__':
     # Testcases
     # CASE 1
-    drawtree(deserialize('[0,-10,5,null,-3,null,9]'))
+    # drawtree(deserialize('[0,-10,5,null,-3,null,9]'))
     # CASE 2
-    drawtree(deserialize('[1,null,3]'))
+    # drawtree(deserialize('[1,null,3]'))
     # CASE 3
-    drawtree(deserialize('[23,6,76,3,8,48,89]'))
-    # CASE 4
     drawtree(deserialize('[0,-29,72,-41,-20,50,91,null,-32,null,-11,null,65,null,99]'))
+    # CASE 4
+    # drawtree(deserialize('[23,6,76,3,8,48,89]'))
     # CASE 5
-    drawtree(deserialize('[0,-10,9,-20,-3,5,27]'))
+    # drawtree(deserialize('[0,-10,9,-20,-3,5,27]'))
