@@ -43,6 +43,29 @@ def inOrder(node):
     inOrder(node.right)
 
 
+def preOrder(node):
+    if not node:
+        return
+    # print the current node value
+    print(node.val, end=" ")
+    # visit the left child/subtree recursively
+    postOrder(node.left)
+    # then visit the right child/subtree recursively
+    inOrder(node.right)
+
+
+def postOrder(node):
+    if not node:
+        return
+
+    # visit the left child/subtree recursively
+    postOrder(node.left)
+    # then visit the right child/subtree recursively
+    inOrder(node.right)
+    # print the current node value
+    print(node.val, end=" ")
+
+
 def main():
     # Testcases
     case1 = [-10, -3, 0, 5, 9]
@@ -50,9 +73,14 @@ def main():
     case3 = [-41, -32, -29, -20, -11, 0, 50, 65, 72, 91, 99]
 
     result = Solution
-    print(inOrder(result.sortedArrayToBST(case1)))
-    print(inOrder(result.sortedArrayToBST(case2)))
-    print(inOrder(result.sortedArrayToBST(case3)))
+    print("Post-Order Traversal")
+    print("Case #1: ")
+    print(postOrder(result.sortedArrayToBST(case1)))
+    print("Case #2: ")
+    print(postOrder(result.sortedArrayToBST(case2)))
+    print("Case #3: ")
+    print(postOrder(result.sortedArrayToBST(case3)))
+
 
 
 # Press the green button in the gutter to run the script.
