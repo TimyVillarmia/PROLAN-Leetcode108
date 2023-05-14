@@ -20,7 +20,7 @@ class Solution:
                 return None
 
             # middle index of the array
-            midpoint = (lower + upper + 1) // 2
+            midpoint = (lower + upper) // 2
             # create new BSTNode
             root = BSTNode(nums[midpoint])
             # recursive call for left subtree   
@@ -57,7 +57,6 @@ def preOrder(node):
 def postOrder(node):
     if not node:
         return
-
     # visit the left child/subtree recursively
     postOrder(node.left)
     # then visit the right child/subtree recursively
@@ -80,7 +79,6 @@ def main():
     print(postOrder(result.sortedArrayToBST(case2)))
     print("Case #3: ")
     print(postOrder(result.sortedArrayToBST(case3)))
-
 
 
 # Press the green button in the gutter to run the script.
