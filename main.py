@@ -13,23 +13,24 @@ class BSTNode(object):
 
 # reference https://www.youtube.com/watch?v=0K0uCMYq5ng
 class Solution:
-    def sortedArrayToBST(nums: list[int]) -> BSTNode:
-        def recursion(lower, upper):
-            # base-case / stopping condition
-            if lower > upper:
-                return None
 
-            # middle index of the array
-            midpoint = (lower + upper) // 2
-            # create new BSTNode
-            root = BSTNode(nums[midpoint])
-            # recursive call for left subtree   
-            root.left = recursion(lower, midpoint - 1)
-            # recursive call for right subtree
-            root.right = recursion(midpoint + 1, upper)
-            return root
+    def recursion(self, nums, lower, upper):
+        # base-case / stopping condition
+        if lower > upper:
+            return None
 
-        return recursion(0, len(nums) - 1)
+        # middle index of the array
+        midpoint = (lower + upper + 1) // 2
+        # create new BSTNode
+        root = BSTNode(nums[midpoint])
+        # recursive call for left subtree
+        root.left = self.recursion(nums, lower, midpoint - 1)
+        # recursive call for right subtree
+        root.right = self.recursion(nums, midpoint + 1, upper)
+        return root
+
+    def sortedArrayToBST(self, nums: list[int]) -> BSTNode:
+        return self.recursion(nums, 0, len(nums) - 1)
 
 
 def inOrder(node):
@@ -69,9 +70,11 @@ def main():
     # Testcases
     case1 = [-10, -3, 0, 5, 9]
     case2 = [1, 3]
-    case3 = [-41, -32, -29, -20, -11, 0, 50, 65, 72, 91, 99]
+    case3 = [3, 6, 8, 23, 48, 76, 89]
+    case4 = [-41, -32, -29, -20, -11, 0, 50, 65, 72, 91, 99]
+    case5 = [0, 1, 3, 5, 7, 9, 11]
 
-    result = Solution
+    result = Solution()
     print("Post-Order Traversal")
     print("Case #1: ")
     print(postOrder(result.sortedArrayToBST(case1)))
@@ -79,6 +82,8 @@ def main():
     print(postOrder(result.sortedArrayToBST(case2)))
     print("Case #3: ")
     print(postOrder(result.sortedArrayToBST(case3)))
+    print("Case #4: ")
+    print(postOrder(result.sortedArrayToBST(case4)))
 
 
 # Press the green button in the gutter to run the script.
