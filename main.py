@@ -57,6 +57,7 @@ def preOrder(node):
 def postOrder(node):
     if not node:
         return
+
     # visit the left child/subtree recursively
     postOrder(node.left)
     # then visit the right child/subtree recursively
@@ -67,11 +68,11 @@ def postOrder(node):
 
 def main():
     # Testcases
-    case1 = [-10, -3, 0, 5, 9]
-    case2 = [1, 3]
-    case3 = [3, 6, 8, 23, 48, 76, 89]
-    case4 = [-41, -32, -29, -20, -11, 0, 50, 65, 72, 91, 99]
-    case5 = [0, 1, 3, 5, 7, 9, 11]
+    case1 = [-10, -3, 0, 5, 9]  # BST [0,-10,5,null,-3,null,9]
+    case2 = [1, 3]  # BST [1,null,3]
+    case3 = [3, 6, 8, 23, 48, 76, 89]  # BST [23,6,76,3,8,48,89]
+    case4 = [-41, -32, -29, -20, -11, 0, 50, 65, 72, 91,99]  # BST [0,-29,72,-41,-20,50,91,null,-32,null,-11,null,65,null,99]
+    case5 = [-20, -10, -3, 0, 5, 9, 27]  # BST [0,-10,9,-20,-3,5,27]
 
     result = Solution()
     print("Post-Order Traversal")
@@ -83,6 +84,8 @@ def main():
     print(postOrder(result.sortedArrayToBST(case3)))
     print("Case #4: ")
     print(postOrder(result.sortedArrayToBST(case4)))
+    print("Case #5: ")
+    print(postOrder(result.sortedArrayToBST(case5)))
 
 
 # Press the green button in the gutter to run the script.
