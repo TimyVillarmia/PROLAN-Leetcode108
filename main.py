@@ -11,20 +11,20 @@ class BSTNode(object):
         self.right = right
 
 
-# reference https://www.youtube.com/watch?v=0K0uCMYq5ng
+# Reference https://www.youtube.com/watch?v=0K0uCMYq5ng
 class Solution:
     def recursion(self, nums, lower, upper):
-        # base-case / stopping condition
+        # Base-case / stopping condition
         if lower > upper:
             return None
 
-        # middle index of the array
+        # Middle index of the array
         midpoint = (lower + upper) // 2
-        # create new BSTNode
+        # Create new BSTNode
         root = BSTNode(nums[midpoint])
-        # recursive call for left subtree
+        # Recursive call for left subtree
         root.left = self.recursion(nums, lower, midpoint - 1)
-        # recursive call for right subtree
+        # Recursive call for right subtree
         root.right = self.recursion(nums, midpoint + 1, upper)
         return root
 
@@ -35,22 +35,22 @@ class Solution:
 def inorder(node):
     if not node:
         return
-    # visit the left child/subtree recursively
+    # Visit the left child/subtree recursively
     inorder(node.left)
-    # print the current node value
+    # Print the current node value
     print(node.val, end=" ")
-    # then visit the right child/subtree recursively
+    # Then visit the right child/subtree recursively
     inorder(node.right)
 
 
 def preorder(node):
     if not node:
         return
-    # print the current node value
+    # Print the current node value
     print(node.val, end=" ")
-    # visit the left child/subtree recursively
+    # Visit the left child/subtree recursively
     preorder(node.left)
-    # then visit the right child/subtree recursively
+    # Then visit the right child/subtree recursively
     preorder(node.right)
 
 
@@ -58,11 +58,11 @@ def postorder(node):
     if not node:
         return
 
-    # visit the left child/subtree recursively
+    # Visit the left child/subtree recursively
     postorder(node.left)
-    # then visit the right child/subtree recursively
+    # Then visit the right child/subtree recursively
     postorder(node.right)
-    # print the current node value
+    # Print the current node value
     print(node.val, end=" ")
 
 
