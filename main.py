@@ -1,3 +1,6 @@
+from typing import List
+
+
 # Definition for a binary tree node.
 class BSTNode(object):
     # The __init__() function is called automatically every time the class is being used to create a new object.
@@ -28,7 +31,7 @@ class Solution:
         root.right = self.recursion(nums, midpoint + 1, upper)
         return root
 
-    def sorted_array_to_bst(self, nums: list[int]) -> BSTNode:
+    def sorted_array_to_bst(self, nums: List[int]) -> BSTNode:
         return self.recursion(nums, 0, len(nums) - 1)
 
 
